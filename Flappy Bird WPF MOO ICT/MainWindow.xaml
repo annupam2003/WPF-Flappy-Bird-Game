@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Flappy_Bird_WPF_MOO_ICT"
         mc:Ignorable="d"
         Title="Flappy Bird WPF MOO ICT" Height="490" Width="525">
-    <Canvas Name="MyCanvas" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp" Background="LightBlue">
+    <Canvas Name="MyCanvas" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp" Background="LightBlue" MouseLeftButtonDown="MouseIsDown" MouseLeftButtonUp="MouseIsUp" MouseRightButtonDown="MouseReset">
 
         <Image Height="145" Width="200" Source="images/clouds.png" Canvas.Left="28" Canvas.Top="120" Tag="clouds"/>
         <Image Height="145" Width="200" Source="images/clouds2.png" Canvas.Left="307" Canvas.Top="120" Tag="clouds"/>

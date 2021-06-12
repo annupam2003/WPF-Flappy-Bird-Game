@@ -97,34 +97,35 @@ namespace Flappy_Bird_WPF_MOO_ICT
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Space)
-            {
-                flappyBird.RenderTransform = new RotateTransform(-20, flappyBird.Width / 2, flappyBird.Height / 2);
-                gravity = -8;
-            }
-
-            if (e.Key == Key.R && gameOver == true)
-            {
-                StartGame();
-            }
+            if (e.Key == Key.Space) Down();
+            if (e.Key == Key.R && gameOver == true) StartGame();
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
-            flappyBird.RenderTransform = new RotateTransform(5, flappyBird.Width /2, flappyBird.Height /2);
+            Up();
+        }
+        private void MouseIsDown(object sender, MouseButtonEventArgs e)
+        {
+            Down();
+        }
 
-            gravity = 8;
+        private void MouseIsUp(object sender, MouseButtonEventArgs e)
+        {
+            Up();
+        }
+        private void MouseReset(object sender, MouseButtonEventArgs e)
+        {
+            if(gameOver == true) StartGame();
         }
 
         private void StartGame()
         {
-            MyCanvas.Focus();
-
             int temp = 300;
-
+            gameOver = false;
             score = 0;
 
-            gameOver = false;
+            MyCanvas.Focus();
 
             Canvas.SetTop(flappyBird, 190);
 
@@ -160,5 +161,18 @@ namespace Flappy_Bird_WPF_MOO_ICT
             txtScore.Content += " Game Over!!! Press R to restart.";
 
         }
+
+        private void Down()
+        {
+            flappyBird.RenderTransform = new RotateTransform(-20, flappyBird.Width / 2, flappyBird.Height / 2);
+            gravity = -8;
+        }
+        private void Up()
+        {
+            flappyBird.RenderTransform = new RotateTransform(5, flappyBird.Width / 2, flappyBird.Height / 2);
+            gravity = 8;
+        }
+
+       
     }
 }
